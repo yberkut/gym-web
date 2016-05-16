@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
+import Paper from 'material-ui/Paper';
 import Footer from './Footer';
 
 const defaultStyle = {
-  width: 300,
-  marginLeft: 20
+  margin: 20
 };
 
 class MainSection extends Component {
@@ -21,10 +21,20 @@ class MainSection extends Component {
 
   render() {
 
+    const style = {
+      width: '100%',
+      minHeight: 300,
+      margin: '10 auto',
+      padding: 10,
+      display: 'inline-block'
+    };
+
     return (
       <section className="main" style={defaultStyle}>
 
-        {this.renderFooter()}
+        <Paper style={style} zDepth={1} rounded={false}>
+          Some text in main section
+        </Paper>
 
       </section>
     );

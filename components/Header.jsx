@@ -19,18 +19,23 @@ export default class Header extends Component {
   handleClose = () => this.setState({open: false});
 
   render() {
+    const menuTitle = 'Menu';
+
     return (
       <header className="header">
-        <AppBar title="React + Redux + Material UI Boilerplate" onLeftIconButtonTouchTap={this.handleToggle}/>
-        <h1 style={defaultStyle}>Hello!</h1>
+        <AppBar onLeftIconButtonTouchTap={this.handleToggle}/>
         <Drawer
-          docked={false}
-          width={200}
+          width={250}
           open={this.state.open}
           onRequestChange={(open) => this.setState({open})}
         >
-          <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
+          <AppBar title={menuTitle} onLeftIconButtonTouchTap={this.handleClose} />
+          <MenuItem onTouchTap={this.handleClose}>Menu Item 1</MenuItem>
           <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+          <MenuItem onTouchTap={this.handleClose}>Menu Item 3</MenuItem>
+          <MenuItem onTouchTap={this.handleClose}>Menu Item 4</MenuItem>
+          <MenuItem onTouchTap={this.handleClose}>Menu Item 5</MenuItem>
+          <MenuItem onTouchTap={this.handleClose}>Menu Item 6</MenuItem>
         </Drawer>
       </header>
     );
