@@ -1,4 +1,4 @@
-# react-redux-material_ui-boilerplate
+# gym-web
 A boilerplate for React + Redux + Material UI + ES6 syntax applications. This boilerplate includes following tools and frameworks.
 
 * [React](https://facebook.github.io/react/)
