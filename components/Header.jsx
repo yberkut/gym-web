@@ -1,43 +1,38 @@
-import React, { PropTypes, Component } from 'react';
-import TodoTextInput from './TodoTextInput';
+import React, {PropTypes, Component} from 'react';
 
-import mui, {AppBar, Styles} from 'material-ui';
-import MyRawTheme from '../src/material_ui_raw_theme_file';
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import MenuItem from 'material-ui/MenuItem';
 
 const defaultStyle = {
   marginLeft: 20
 };
 
-class Header extends Component {
-  static get childContextTypes() {
-    return { muiTheme: React.PropTypes.object };
+export default class Header extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {open: false};
   }
 
-  getChildContext(){
-    return {  muiTheme: Styles.ThemeManager.getMuiTheme(MyRawTheme)};
-  }
-
-  handleSave(text) {
-    if (text.length !== 0) {
-      this.props.addTodo(text);
-    }
-  }
+  handleToggle = () => this.setState({open: !this.state.open});
+  handleClose = () => this.setState({open: false});
 
   render() {
     return (
       <header className="header">
-          <AppBar title="React + Redux + Material UI Boilerplate" />
-          <h1 style={defaultStyle} >todos</h1>
-          <TodoTextInput newTodo
-                         onSave={this.handleSave.bind(this)}
-                         placeholder="What needs to be done?" />
+        <AppBar title="React + Redux + Material UI Boilerplate" onLeftIconButtonTouchTap={this.handleToggle}/>
+        <h1 style={defaultStyle}>Hello!</h1>
+        <Drawer
+          docked={false}
+          width={200}
+          open={this.state.open}
+          onRequestChange={(open) => this.setState({open})}
+        >
+          <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
+          <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+        </Drawer>
       </header>
     );
   }
 }
-
-Header.propTypes = {
-  addTodo: PropTypes.func.isRequired
-};
-
-export default Header;

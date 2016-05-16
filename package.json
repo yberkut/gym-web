@@ -1,7 +1,7 @@
 {
-  "name": "react-redux-material_ui-boilerplate",
-  "version": "1.0.0",
-  "description": "A boilerplate for React + Redux + Material UI + ES6 syntax application",
+  "name": "gym-web",
+  "version": "0.1.0",
+  "description": "Web application for GYM solution",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -19,7 +19,7 @@
     "Bable",
     "ES6"
   ],
-  "author": "https://github.com/takanabe",
+  "author": "Iaroslav Berkut",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/takanabe/react-redux-material_ui-boilerplate/issues"
@@ -47,7 +47,7 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "fbjs": "^0.8.1",
-    "material-ui": "^0.14.4",
+    "material-ui": "^0.15.0",
     "react": "^0.14.0",
     "react-addons-create-fragment": "^0.14.0",
     "react-addons-pure-render-mixin": "^0.14.0",
