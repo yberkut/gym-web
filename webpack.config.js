@@ -1,11 +1,11 @@
 module.exports = {
+  devtool: "source-map",
   context: __dirname,
   entry: {
     jsx: "./src/index.jsx",
     css: "./src/main.css",
     html: "./src/index.html",
   },
-
   output: {
     path: __dirname + "/static",
     filename: "bundle.js",
