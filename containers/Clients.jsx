@@ -1,20 +1,7 @@
 import React, {Component} from 'react';
-import Paper from 'material-ui/Paper';
-
-import Footer from './Footer';
-
 import {Table, Column, Cell} from 'fixed-data-table';
 
-import FakeObjectDataListStore from './FakeObjectDataListStore';
-
-
-const defaultStyle = {
-  margin: 20
-};
-
-let self;
-
-
+import FakeObjectDataListStore from '../helpers/FakeObjectDataListStore';
 
 const TextCell = ({rowIndex, data, columnKey, ...props}) => (
   <Cell {...props}>
@@ -22,14 +9,13 @@ const TextCell = ({rowIndex, data, columnKey, ...props}) => (
   </Cell>
 );
 
-export default class MainSection extends Component {
+export default class Clients extends Component {
 
   constructor(props, context) {
     super(props, context);
-    self = this;
 
     this.state = {
-      dataList: new FakeObjectDataListStore(1000000),
+      dataList: new FakeObjectDataListStore(10),
       columnWidths: {
         firstName: 240,
         lastName: 150,
@@ -52,18 +38,9 @@ export default class MainSection extends Component {
 
   render() {
 
-    const style = {
-      width: '100%',
-      minHeight: 30,
-      margin: 10,
-      padding: 10,
-      display: 'inline-block'
-    };5
-
     let {dataList, columnWidths} = this.state;
 
     return (
-      <section className="main" style={defaultStyle}>
 
         <Table
           rowHeight={30}
@@ -106,12 +83,6 @@ export default class MainSection extends Component {
             isResizable={true}
           />
         </Table>
-
-      <Paper style={style} zDepth={1}>
-        <Footer />
-      </Paper>
-
-      </section>
     );
   }
 }
