@@ -1,6 +1,7 @@
 # gym-web
-A boilerplate for React + Redux + Material UI + ES6 syntax applications. This boilerplate includes following tools and frameworks.
+Automation for managing gym ecosystem.
 
+## Technology stack
 * [React](https://facebook.github.io/react/)
 * [Redux](http://rackt.org/redux/index.html)
 * [Material UI](http://material-ui.com/#/)
@@ -8,19 +9,7 @@ A boilerplate for React + Redux + Material UI + ES6 syntax applications. This bo
 * [Babel](https://babeljs.io/)
 * [ESLint](http://eslint.org/)
 
-
 # Usage
-## Preparation
-```bash
-$ git clone https://github.com/takanabe/react-redux-material_ui-boilerplate.git
-$ mv react-redux-material_ui-boilerplate [YOUR_APPNAME]
-$ cd [YOUR_APPNAME]
-$ rm -rf .git
-$ git init
-$ git add -A
-$ git commit -m "Initial commit with boilerplate"
-```
-
 ## Package installation
 ```bash
 $ npm install
@@ -35,6 +24,7 @@ $ npm start
 
 Becareful! the webpack-dev-server rebuild files in `src` automatically but the bundled files are just placed on its memory. Build manually by allowing next section(Build assets), if you want need the bundled files.
 
+Open application in browser typing http://localhost:8080
 
 ## Build assets
 To put compiled files into `static` directory, type the following command.
