@@ -10,37 +10,44 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import React, {Component} from 'react';
+const React = require('react');
 
 let PendingPool = {};
 let ReadyPool = {};
 
-export default class ExampleImage extends React.Component {
+const ExampleImage = React.createClass({
+  propTypes: {
+    src: React.PropTypes.string.isRequired
+  },
 
-  constructor(props) {
-    super(props);
-    this.state = {ready: false};
-  }
+  getInitialState() {
+    return {
+      ready: false
+    };
+  },
 
   componentWillMount() {
     this._load(this.props.src);
-  }
+  },
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.src !== this.props.src) {
       this.setState({src: null});
       this._load(nextProps.src);
     }
-  }
+  },
 
   render() {
-
     let style = this.state.src ?
-    {backgroundImage: 'url(' + this.state.src + ')'} :
-      undefined;
+    {
+      backgroundImage : 'url(' + this.state.src + ')',
+      height: '49px',
+      backgroundSize: 'cover'
+    }
+    : undefined;
 
-    return (<div className="exampleImage" style={style}/>);
-  }
+    return <div className="exampleImage" style={style} />;
+  },
 
   _load(/*string*/ src) {
     if (ReadyPool[src]) {
@@ -62,10 +69,11 @@ export default class ExampleImage extends React.Component {
       });
       delete PendingPool[src];
       img.onload = null;
+      //noinspection JSValidateTypes
       src = undefined;
     };
     img.src = src;
-  }
+  },
 
   _onLoad(/*string*/ src) {
     ReadyPool[src] = true;
@@ -75,9 +83,7 @@ export default class ExampleImage extends React.Component {
       });
     }
   }
+});
 
-}
 
-// ExampleImage.propTypes = {
-//   src: React.PropTypes.string.isRequired
-// };
+module.exports = ExampleImage;
